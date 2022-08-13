@@ -1,1 +1,3 @@
-# rpn-uart-verilog
+# Reverse Polish Notation Computer via UART
+
+
