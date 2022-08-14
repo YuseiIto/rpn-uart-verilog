@@ -44,7 +44,7 @@ end
 
 /* Icarus Verilog simulation */
 initial begin
-	$dumpfile("digit_to_byte.vcd");
+	$dumpfile("digits_to_byte.vcd");
 	$dumpvars(0, parser_inst);
 end
 
