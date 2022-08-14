@@ -16,7 +16,7 @@ assign ans = is_op_add ? (left+right) :
 						 is_op_sub ? (left-right) :
 						 is_op_mul ? (left*right) :
 						 is_op_div ? (left/right) :
-						 is_op_pop ? (left) :
+						 is_op_pop ? (right) :
 						 left;
 
 assign arg_cnt = is_op_add ? 2'd02 :
