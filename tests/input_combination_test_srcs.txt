@@ -1,0 +1,5 @@
+./input_combination_test.v
+../uart_rx/uart_rx.v
+../ring_buffer/ring_buffer.v
+../parse_ascii/parse_ascii.v
+../digits_to_byte/digits_to_byte.v
