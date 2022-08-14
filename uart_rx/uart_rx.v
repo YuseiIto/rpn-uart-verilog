@@ -23,6 +23,7 @@ end
 always @(negedge rx_in) begin
 	if (baudrate_clk_en==0) begin
 		baudrate_clk_en<=1;
+		baudrate_clk<=0; // NOTE: It's really important to set this to 0, otherwise start bit detection fails
 		rx_data<= 10'b1111111111; // Fill with 1 to detect start bit
 	end
 end
