@@ -16,8 +16,9 @@ reg wen;
 
 wire [3:0] dout;
 wire sending;
+wire leading_zero;
 
-byte_to_digits encoder (clk,din,wen,dout,sending);
+byte_to_digits encoder (clk,din,wen,dout,leading_zero,sending);
 
 initial begin
 	clk=0;
