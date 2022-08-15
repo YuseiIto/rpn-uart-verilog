@@ -1,0 +1,17 @@
+ring_buffer/ring_buffer.v
+uart_rx/uart_rx.v
+baudrate_clk_gen/baudrate_clk_gen.v
+bufferd_uart_rx/bufferd_uart_rx.v
+interpreter/interpreter.v
+parse_ascii/parse_ascii.v
+digits_to_byte/digits_to_byte.v
+
+
+rpn/rpn.v
+alu/alu.v
+op_controller/op_controller.v
+stack_controller/stack_controller.v
+stack/stack.v
+
+rpn_uart_computer.v
+rpn_uart_computer_test.v
