@@ -1,0 +1,7 @@
+../ring_buffer/ring_buffer.v
+../uart_tx/uart_tx.v
+../baudrate_clk_gen/baudrate_clk_gen.v
+./bufferd_uart_tx.v
+./bufferd_uart_tx_test.v
+
+
