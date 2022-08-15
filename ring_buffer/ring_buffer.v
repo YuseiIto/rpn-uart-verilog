@@ -22,6 +22,7 @@ initial begin
 	read_cursor <= 0;
 end
 
+// WARN:This does NOT handle the buffer overflow
 wire empty = (read_cursor == write_cursor);
 
 always@(posedge clk)begin
