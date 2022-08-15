@@ -12,8 +12,8 @@ always #(CLK_PERIOD/2) clk = ~clk;
 parameter TIMESCALE_PER_BIT = 8681;
 
 
-parameter INPUT_STRING="12 12 + 3 *\n";
-parameter INPUT_STRING_LENGTH = 12;
+parameter INPUT_STRING="12 12 + 3 * 2 /\n";
+parameter INPUT_STRING_LENGTH = 16;
 
 integer c,b; // Char/Bit index
 
@@ -22,8 +22,9 @@ reg rx_in;
 wire op_ready,num_ready;
 wire [15:0] num;
 wire [3:0] op;
+wire rx_out;
 
-rpn_uart_computer main_module(clk,rx_in);
+rpn_uart_computer main_module(clk,rx_in,rx_out);
 
 initial begin
 	clk=0;

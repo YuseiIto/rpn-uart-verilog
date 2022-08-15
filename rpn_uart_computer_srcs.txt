@@ -13,5 +13,15 @@ op_controller/op_controller.v
 stack_controller/stack_controller.v
 stack/stack.v
 
+
+
+byte_to_digits/byte_to_digits.v
+digit_to_ascii/digit_to_ascii.v
+newline_terminator/newline_terminator.v
+println/println.v
+uart_tx/uart_tx.v
+bufferd_uart_tx/bufferd_uart_tx.v
+printer/printer.v
+
 rpn_uart_computer.v
 rpn_uart_computer_test.v
