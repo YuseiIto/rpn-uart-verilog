@@ -1,0 +1,14 @@
+
+../byte_to_digits/byte_to_digits.v
+../digit_to_ascii/digit_to_ascii.v
+../newline_terminator/newline_terminator.v
+../println/println.v
+
+
+../ring_buffer/ring_buffer.v
+../uart_tx/uart_tx.v
+../baudrate_clk_gen/baudrate_clk_gen.v
+../bufferd_uart_tx/bufferd_uart_tx.v
+
+./printer.v
+./printer_test.v
