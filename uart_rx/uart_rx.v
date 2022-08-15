@@ -8,22 +8,17 @@ output reg ready;
 reg [9:0] rx_data; // start bits + data + stop bit
 
 reg baudrate_clk_en; // If runnning baudrate clk
-
-reg [9:0] baudrate_clk_counter; // Count up to 542= 1085/2= ((1s / 115200 bps)/8ns)/2
-parameter BAUDRATE_CLK_PERIOD = 1086; // 1085 = (1s / 115200 bps)/8ns, but odd number to avoid divisiob errors
-reg baudrate_clk;
+wire baudrate_clk;
+baudrate_clk_gen clk_gen_inst (clk,baudrate_clk_en,baudrate_clk);
 
 initial begin
 	baudrate_clk_en = 0;
-	baudrate_clk_counter = 0;
-	baudrate_clk = 0;
 	ready = 0;
 end
 
 always @(negedge rx_in) begin
 	if (baudrate_clk_en==0) begin
 		baudrate_clk_en<=1;
-		baudrate_clk<=0; // NOTE: It's really important to set this to 0, otherwise start bit detection fails
 		rx_data<= 10'b1111111111; // Fill with 1 to detect start bit
 	end
 end
@@ -31,13 +26,6 @@ end
 
 always@(posedge clk) begin
 	if(baudrate_clk_en) begin
-		// Baudrate counter
-		if(baudrate_clk_counter < BAUDRATE_CLK_PERIOD/2) baudrate_clk_counter <= baudrate_clk_counter + 1;
-		else begin
-			baudrate_clk_counter<=0;
-			baudrate_clk<=~baudrate_clk;
-		end
-
 		// Check if data is ready by start/stop bit
 		if(~rx_data[9] & rx_data[0]) begin
 			// Byte is ready

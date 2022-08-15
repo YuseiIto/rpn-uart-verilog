@@ -21,14 +21,14 @@ initial begin
 	clk=0;
 	rx_in=1;
 	#(TIMESCALE_PER_BIT) rx_in = 0; // Start bit
-	#(TIMESCALE_PER_BIT) rx_in = 1;
-	#(TIMESCALE_PER_BIT) rx_in = 0;
-	#(TIMESCALE_PER_BIT) rx_in = 0;
-	#(TIMESCALE_PER_BIT) rx_in = 1;
-	#(TIMESCALE_PER_BIT) rx_in = 0;
-	#(TIMESCALE_PER_BIT) rx_in = 0;
-	#(TIMESCALE_PER_BIT) rx_in = 1;
-	#(TIMESCALE_PER_BIT) rx_in = 0;
+	#(TIMESCALE_PER_BIT) rx_in = 0; // db0
+	#(TIMESCALE_PER_BIT) rx_in = 0; // db1
+	#(TIMESCALE_PER_BIT) rx_in = 0; // db2
+	#(TIMESCALE_PER_BIT) rx_in = 0; // db3
+	#(TIMESCALE_PER_BIT) rx_in = 1; // db4
+	#(TIMESCALE_PER_BIT) rx_in = 1; // db5
+	#(TIMESCALE_PER_BIT) rx_in = 0; // db6
+	#(TIMESCALE_PER_BIT) rx_in = 0; // db7
 	#(TIMESCALE_PER_BIT) rx_in = 1; //Stop bit
 	#(TIMESCALE_PER_BIT*2) $finish;
 end
