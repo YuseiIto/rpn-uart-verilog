@@ -10,16 +10,14 @@ output reg [15:0] dout;
 
 reg [15:0] temp;
 
-reg last_flush;
 
 initial begin
 	temp = 0;
 	ready = 0;
-	last_flush=0;
 end
 
 always @(posedge clk) begin
-		if(flush& ~last_flush) begin
+		if(flush) begin
 				temp<=0;
 				dout<= temp;
 				ready <= 1;
@@ -27,7 +25,6 @@ always @(posedge clk) begin
 		else if(wen) temp <= digit + (temp*10);
 
 		if (ready) ready<=0;
-		last_flush<=flush;
 end
 
 endmodule
