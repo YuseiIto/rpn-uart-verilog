@@ -29,10 +29,10 @@ rpn_uart_computer main_module(clk,rx_in,rx_out);
 initial begin
 	clk=0;
 	rx_in=1;
-	for (c=0;c<INPUT_STRING_LENGTH;c++) begin
+	for (c=0;c<INPUT_STRING_LENGTH;c=c+1) begin
 		#(TIMESCALE_PER_BIT) rx_in = 0; // Start bit
 		#8 
-		for (b=0;b<8;b++) begin
+		for (b=0;b<8;b=b+1) begin
 			#(TIMESCALE_PER_BIT) rx_in = INPUT_STRING[(INPUT_STRING_LENGTH-1-c)*8+b];
 		end
 		#(TIMESCALE_PER_BIT) rx_in = 1; //Stop bit
