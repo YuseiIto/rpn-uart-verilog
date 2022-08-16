@@ -3,8 +3,8 @@ module baudrate_clk_gen(clk,en,baudrate_clk);
 input clk,en;
 output reg baudrate_clk;
 
-reg [9:0] clk_counter; // Count up to 542= 1085/2= ((1s / 115200 bps)/8ns)/2
-parameter BAUDRATE_CLK_PERIOD = 1086; // 1085 = (1s / 115200 bps)/8ns, but odd number to avoid division errors
+reg [6:0] clk_counter; // Count up to 108 = 217/2
+parameter BAUDRATE_CLK_PERIOD = 217; // 25MHz / 115200 bps = 217
 
 initial begin
 		clk_counter = 0;

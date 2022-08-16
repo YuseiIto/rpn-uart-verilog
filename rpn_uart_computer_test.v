@@ -3,7 +3,7 @@
 module rpn_uart_computer_testbench();
 
 /* Test bench common setup */
-parameter CLK_PERIOD = 8; // Clock period in timescale(1ns in this case)
+parameter CLK_PERIOD = 40; // Clock period in timescale(1ns in this case)
 reg clk;
 always #(CLK_PERIOD/2) clk = ~clk;
 
