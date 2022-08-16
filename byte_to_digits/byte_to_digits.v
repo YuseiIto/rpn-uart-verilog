@@ -7,17 +7,15 @@ output reg sending;
 output reg leading_zero;
 
 reg [15:0] tmp;
-reg [2:0] power;
-reg finish;
 
 initial begin
 	sending = 0;
 	dout = 0;
 	tmp = 0;
-	power = 0;
-	finish = 0;
 	leading_zero = 0;
 end
+
+reg [15:0] div_num;
 
 always@(posedge clk) begin
 	if (wen) begin
@@ -28,29 +26,24 @@ always@(posedge clk) begin
 		 However, to make sure that the "sending" signal is not stuck at 1,
 		 send a "definitely zero" msb */
 		sending<=1;
-		power<=4;
+		div_num<=10**4;
 		leading_zero<=1;
 	end
 
-	if (power>0) begin
-		dout<=tmp/10**power;
+	if (div_num>0) begin
+		dout<=tmp/div_num;
 
-		if (leading_zero && tmp/10**power!=0) begin
+		if (leading_zero && tmp/div_num!=0) begin
 			leading_zero<=0;
 		end
 
-		power<=power-1;
-		tmp<= tmp%10**power;
+		div_num<=div_num/10;
+		tmp<= tmp%div_num;
 	end
-	else if (power==0 && sending)begin
+	else if (div_num==0 && sending)begin
 		dout<=tmp;
 		tmp<=0;
-		finish <=1;
-	end
-
-	if (finish) begin
 		sending<=0;
-		finish<=0;
 	end
 end
 
